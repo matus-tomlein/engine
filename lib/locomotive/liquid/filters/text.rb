@@ -44,6 +44,10 @@ module Locomotive
           Locomotive::Markdown.render(input)
         end
 
+        def extract_param_from_url(url, param)
+          url.split('?').last.split(param + '=').last.split('&').first
+        end
+
       end
 
       ::Liquid::Template.register_filter(Text)
